@@ -17,6 +17,11 @@ app.get('/', (req, res) => {
 app.get('/add', (req, res) => res.render('create'));
 
 app.post('/add', (req, res) => {
+    const { name, link, image } = req.body;
+    const singer = new Singer({ name, link, image });
+    singer.save()
+    .then(() => res.redirect('/'))
+    .catch(error => res.send(error));
 });
 
 app.get('/update/:id', (req, res) => {
