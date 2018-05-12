@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://mlab:123@ds237707.mlab.com:37707/mean1704')
+function getDatabaseUri() {
+    if (process.env.NODE_ENV = 'production') {
+        return 'mongodb://mlab:123@ds237707.mlab.com:37707/mean1704';
+    }
+    return 'mongodb://localhost/mean1704';
+}
+
+mongoose.connect(getDatabaseUri())
 .then(() => console.log('Database connected.'))
 .catch(error => console.log('Cannot connect database', error));
 
