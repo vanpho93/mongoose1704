@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/mean1704')
+mongoose.connect('mongodb://mlab:123@ds237707.mlab.com:37707/mean1704')
 .then(() => console.log('Database connected.'))
 .catch(error => console.log('Cannot connect database', error));
 

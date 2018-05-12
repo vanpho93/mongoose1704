@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>Khoa Pham Singers</h1>
+    <a href="/add">Add new singer</a>
     <table class="table table-striped">
         <thead>
           <tr>
@@ -40,7 +41,8 @@
           
         </tbody>
       </table>
-      <a href="/add">Add new singer</a>
 </body>
 </html>
-<script src="reload/reload.js"></script>
+<% if (isDev) { %>
+  <script src="reload/reload.js"></script>
+<% } %>
