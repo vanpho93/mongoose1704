@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 function getDatabaseUri() {
-    if (process.env.NODE_ENV = 'production') {
+    if (process.env.NODE_ENV === 'production') {
         return 'mongodb://mlab:123@ds237707.mlab.com:37707/mean1704';
     }
     return 'mongodb://localhost/mean1704';
