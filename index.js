@@ -25,12 +25,31 @@ app.post('/add', (req, res) => {
 });
 
 app.get('/update/:id', (req, res) => {
+    Singer.findById(req.params.id)
+    .then(singer => {
+        if (!singer) throw new Error('Cannot find singer');
+        res.render('update', { singer });
+    })
+    .catch(error => res.send(error));
 });
 
 app.post('/update/:id', (req, res) => {
+    const { image, name, link } = req.body;
+    Singer.findByIdAndUpdate(req.params.id, { name, link, image })
+    .then(singer => {
+        if (!singer) throw new Error('Cannot find singer');
+        res.redirect('/');
+    })
+    .catch(error => res.send(error));
 });
 
 app.get('/remove/:id', (req, res) => {
+    Singer.findByIdAndRemove(req.params.id)
+    .then(singer => {
+        if (!singer) throw new Error('Cannot find singer');
+        res.redirect('/');
+    })
+    .catch(error => res.send(error));
 });
 
 app.listen(process.env.PORT || 3000, () => console.log('Server started!'));
