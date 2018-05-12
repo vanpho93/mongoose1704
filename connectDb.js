@@ -12,6 +12,7 @@ const singerSchema = new mongoose.Schema({
 
 const Singer = mongoose.model('Singer', singerSchema);
 
+module.exports = { Singer };
 // READ Doc tat ca document
 // ---------------------------
 // Singer.find({})
